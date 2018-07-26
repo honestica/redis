@@ -19,7 +19,13 @@ jobs:
 
 workflows:
   version: 2
-  update:
+  master:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+  weekly_update:
     triggers:
       - schedule:
           cron: "0 6 * * 1"
@@ -27,3 +33,5 @@ workflows:
             branches:
               only:
                 - master
+    jobs:
+      - build
