@@ -74,7 +74,6 @@ RUN set -ex; \
 	apt-get purge -y --auto-remove $buildDeps
 
 RUN mkdir /data && chown redis:redis /data
-VOLUME /data
 WORKDIR /data
 
 COPY docker-entrypoint.sh /usr/local/bin/
