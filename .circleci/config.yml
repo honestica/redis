@@ -16,3 +16,14 @@ jobs:
             docker tag honestica/redis:$VERSION-$CIRCLE_BUILD_NUMhonestica/hubot:$VERSION-latest
             docker push honestica/hubot:$VERSION-$CIRCLE_BUILD_NUM
             docker push honestica/hubot:$VERSION-latest
+
+workflows:
+  version: 2
+  update:
+    triggers:
+      - schedule:
+          cron: "0 6 * * 1"
+          filters:
+            branches:
+              only:
+                - master
