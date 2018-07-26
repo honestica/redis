@@ -13,7 +13,7 @@ jobs:
             VERSION=4.0
             docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
             docker build -t honestica/redis:$VERSION-$CIRCLE_BUILD_NUM $VERSION
-            docker tag honestica/redis:$VERSION-$CIRCLE_BUILD_NUMhonestica/hubot:$VERSION-latest
+            docker tag honestica/redis:$VERSION-$CIRCLE_BUILD_NUM honestica/hubot:$VERSION-latest
             docker push honestica/hubot:$VERSION-$CIRCLE_BUILD_NUM
             docker push honestica/hubot:$VERSION-latest
 
